@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="PgManageBasket.jsp" x="240" y="149" zoom="true"/>
+        <Node id="PgTreeView.jsp" x="436" y="59" zoom="true"/>
+        <Node id="*" x="217" y="-251" zoom="false"/>
+        <Node id="PgSentItem.jsp" x="395" y="-330" zoom="true"/>
+        <Node id="PgSearch.jsp" x="15" y="-429" zoom="true"/>
+        <Node id="PgUserInfo.jsp" x="423" y="-102" zoom="true"/>
+        <Node id="PgFileRepository.jsp" x="-61" y="-251" zoom="true"/>
+        <Node id="PgReceivedItem.jsp" x="-60" y="-354" zoom="true"/>
+        <Node id="PgNewItem.jsp" x="-48" y="-168" zoom="true"/>
+        <Node id="PgFileFromItems.jsp" x="208" y="-430" zoom="true"/>
+        <Node id="PgEditProfile.jsp" x="426" y="-3" zoom="true"/>
+        <Node id="PgManageSavedSearch.jsp" x="-41" y="-44" zoom="true"/>
+        <Node id="PgManagePersonalLists.jsp" x="34" y="58" zoom="true"/>
+        <Node id="PgMenu.jsp" x="424" y="-410" zoom="true"/>
+        <Node id="PgLogin.jsp" x="376" y="-157" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
