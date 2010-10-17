@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="ToggleArchiveService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.ToggleArchiveService" id="ToggleArchiveService">
+    <operation name="doService">
+        <parameter isList="true" typeRef="java.lang.String" name="itemIds"/>
+        <parameter isList="false" typeRef="java.lang.Boolean" name="archive"/>
+        <return isList="true" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <dataobjects/>
+</service>

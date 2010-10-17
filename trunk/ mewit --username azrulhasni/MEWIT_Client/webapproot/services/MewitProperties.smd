@@ -1,0 +1,13 @@
+{
+	"methods": [{
+		"name": "getMewitUrl",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"name": "getTemporaryUploadDirectory",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "MewitProperties.json"
+}

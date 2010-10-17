@@ -1,0 +1,16 @@
+{
+	"methods": [{
+		"name": "doFindCurrentPerson",
+		"parameters": null,
+		"returnType": "org.azrul.epice.domain.Person"
+	}, {
+		"name": "doFindPerson",
+		"parameters": [{
+			"name": "personId",
+			"type": "java.lang.String"
+		}],
+		"returnType": "org.azrul.epice.domain.Person"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "FindUserService.json"
+}

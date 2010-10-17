@@ -1,0 +1,19 @@
+{
+	"methods": [{
+		"name": "doGiveFeedback",
+		"parameters": [{
+			"name": "itemId",
+			"type": "java.lang.String"
+		}, {
+			"name": "feedback",
+			"type": "java.lang.String"
+		}],
+		"returnType": "org.azrul.epice.domain.Item"
+	}, {
+		"name": "sampleJavaOperation",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "GiveFeedback.json"
+}

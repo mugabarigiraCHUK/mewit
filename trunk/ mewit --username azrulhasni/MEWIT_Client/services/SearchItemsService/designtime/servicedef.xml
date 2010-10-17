@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="SearchItemsService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.SearchItemsService" id="SearchItemsService">
+    <operation name="getSearchPage">
+        <return isList="false" typeRef="org.azrul.epice.dao.query.SearchPage"/>
+    </operation>
+    <operation name="findById">
+        <parameter isList="false" typeRef="java.lang.String" name="itemId"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="getChildItem">
+        <return isList="false" typeRef="org.azrul.epice.domain.ChildItem"/>
+    </operation>
+    <operation name="getItem">
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="doSearch">
+        <parameter isList="false" typeRef="java.lang.String" name="searchTerm"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="searchInReceivedItems"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="searchInSentItems"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="searchInSupervisedItems"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="startRow"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="resultCount"/>
+        <parameter isList="false" typeRef="java.lang.Boolean" name="searchArchived"/>
+        <parameter isList="false" typeRef="java.lang.Boolean" name="searchInItemsNeededAttentionOnly"/>
+        <return isList="false" typeRef="org.azrul.epice.dao.query.QueryResult"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="false" name="SearchPage" javaType="org.azrul.epice.dao.query.SearchPage">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="data"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="display"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="Item" javaType="org.azrul.epice.domain.Item">
+            <element allowNull="false" isList="false" typeRef="boolean" name="archived"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="archivedForRecipient"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="archivedForSender"/>
+            <element allowNull="false" isList="true" typeRef="org.azrul.epice.domain.ChildItem" name="children"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="commentsOnFeedback"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="deadLine"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="deadlineStatus"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="deletable"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="feedback"/>
+            <element allowNull="false" isList="false" typeRef="org.azrul.epice.domain.FileRepository" name="fileRepository"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="id"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="links"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="linksList"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="negotiatedDeadLine"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="notDeletable"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="parentId"/>
+            <element allowNull="false" isList="false" typeRef="org.azrul.epice.domain.Item$Priority" name="priority"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="readState"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="reasonForNegotiatiationOfDeadLine"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="reasonForRejectionOfTask"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="recipient"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="recipients"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="recipientsList"/>
+            <element allowNull="false" isList="false" typeRef="int" name="redoCounter"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="reference"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="sender"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="sentDate"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="startDate"/>
+            <element allowNull="false" isList="false" typeRef="org.azrul.epice.domain.Item$Status" name="status"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="subject"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="supervisors"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="supervisorsList"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="tags"/>
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="tagsList"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="task"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="type"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="ChildItem" javaType="org.azrul.epice.domain.ChildItem">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="id"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="recipient"/>
+            <element allowNull="false" isList="false" typeRef="org.azrul.epice.domain.Item$Status" name="status"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="subject"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="QueryResult" javaType="org.azrul.epice.dao.query.QueryResult">
+            <element allowNull="false" isList="true" typeRef="org.azrul.epice.domain.Item" name="items"/>
+            <element allowNull="false" isList="true" typeRef="org.azrul.epice.dao.query.SearchPage" name="pages"/>
+            <element allowNull="false" isList="false" typeRef="int" name="startRow"/>
+            <element allowNull="false" isList="false" typeRef="int" name="total"/>
+        </dataobject>
+    </dataobjects>
+</service>

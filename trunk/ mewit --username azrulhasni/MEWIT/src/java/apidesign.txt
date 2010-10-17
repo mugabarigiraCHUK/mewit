@@ -1,0 +1,43 @@
+login(username:String, password:String): {sessionId:String, items:List<BriefItem>, [createAndSendItem,search,findItemById, modifyPassword, modifyProfile]}
+search(term:String, sessionid:String): {item:List<BriefItem>, [createAndSendItem,search,findItemById,modifyPassword, modifyProfile]}
+createAndSendItem(recipients:List<String>,subject:String,task:String,startDate:Date,deadline:Date,files:List<File>, sessionID:String): {item:List<BriefItem>, [createAndSendItem,search,findItemById,modifyPassword, modifyProfile]}
+
+findItemById(itemID:String, sessionID:String):{item:Item#(status=UNCONFIRMED),[acceptItem$R,negotiateDeadline$R,rejectItem$R, uploadFiles, downloadFiles, deleteFiles, back]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=NEGOTIATED),[respondNegotiation$R, uploadFiles, downloadFiles, deleteFiles, back]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=REJECTED),[toggleArchive,downloadFiles, back]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=ACCEPTED),[delegateItem$R,giveFeedback$R,  uploadFiles,downloadFiles, back, modifyDeadline$SS]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=DELEGATED),[delegateItem$R,giveFeedback$R,  uploadFiles,downloadFiles, back]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=DONE-UNCONFIRMED),[giveCommentToFeedback$S, downloadFiles, back]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=DONE-CONFIRMED),[toggleArchive,downloadFiles,archive,back]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=NEED-REDO),[delegateItem$R,giveFeedback$R, uploadFiles,downloadFiles,archive,back]}
+findItemById(itemID:String, sessionID:String):{item:Item#(status=NEED-REDO DELEGATED),[delegateItem$R,giveFeedback$R, uploadFiles,downloadFiles,archive,back]}
+
+
+delegateItem(itemID:String, recipients:List<String>, sessionID:String){item:Item#(status=DELEGATED|status=NEED-REDO DELEGATED),[delegateItem$R,giveFeedback$R,  uploadFiles,downloadFiles, back]}
+acceptItem(itemID:String, sessionID:String):{item:Item#(status=ACCEPTED),[delegateItem$R,giveFeedback$R, modifyDeadline$SS,  uploadFiles,downloadFiles, back]}
+negotiateDeadline(itemID:String, newProposedDeadline:Date,reason:String, sessionID:String):{item:Item#(status=NEGOTIATED),[respondNegotiation$R, uploadFiles, downloadFiles, deleteFiles, back]}
+rejectItem(itemID:String,reason:String, sessionID:String){item:Item#(status=REJECTED),[toggleArchive,downloadFiles, back]}
+respondNegotiateDeadline(itemID:String, newProposedDeadline:Date, sessionID:String){item:Item#(status=ACCEPTED),[delegateItem$R,giveFeedback$R,  uploadFiles,downloadFiles, back]}
+giveFeedback(itemID:String, feedback:String, files:List<File>, sessionID:String):{item:Item#(status=DONE-UNCONFIRMED),[toggleArchive,downloadFiles,archive,back]}
+giveCommentsOnFeedback(itemID:String, comments:String, approved:boolean):{item:Item#(status=DONE-CONFIRMED|status=NEED-REDO),[giveCommentToFeedback$S, downloadFiles, back]}
+
+
+
+modifyPassword(oldPassword:String, newPassword:String, sessionID:String):{item:List<BriefItem>, [createAndSendItem,search,findItemById,modifyPassword, modifyProfile]}
+modifyProfile(firstName:String, lastName:String, emailWork:String, cellPhone:String, potsWork:String, organization:String, sessionID:String): {item:List<BriefItem>, [createAndSendItem,search,findItemById,modifyPassword, modifyProfile]}
+
+
+toggleArchive(itemID:String, sessionID:String, boolean:archive):{item:Item#(status=REJECTED),[downloadFiles, back]}
+toggleArchive(itemID:String, sessionID:String, boolean:archive):{item:Item#(status=DONE-CONFIRMED),[downloadFiles,back]}
+
+
+modifyDeadline(itemID:String, newDeadline:Date, sessionID:String):{item:Item#(status=ACCEPTED),[delegateItem$R,giveFeedback$R, modifyDeadline$SS,  uploadFiles,downloadFiles, back]}
+
+/****do with plain servlet***/
+uploadFiles(itemID:String, files:List<Files>, sessionID:String):{item:Item}
+deleteFiles(itemID:String, files:List<Files>, sessionID:String):{item:Item}
+/****end****/
+
+$S = currentUser = sender
+$R = currentUser = recipient
+$SS = currentUser = sender = recipient

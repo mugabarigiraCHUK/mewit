@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="GiveCommentsOnFeedback.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.GiveCommentsOnFeedback" id="GiveCommentsOnFeedback">
+    <operation name="doGiveCommentsOnFeedback">
+        <parameter isList="false" typeRef="java.lang.String" name="itemId"/>
+        <parameter isList="false" typeRef="java.lang.String" name="comments"/>
+        <parameter isList="false" typeRef="boolean" name="approved"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="sampleJavaOperation">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <dataobjects/>
+</service>

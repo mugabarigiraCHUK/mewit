@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="UpdateItemWithAttachment.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.UpdateItemWithAttachment" id="UpdateItemWithAttachment">
+    <operation name="doAddAttachment">
+        <parameter isList="false" typeRef="java.lang.String" name="file"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Item" name="item"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="sampleJavaOperation">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <dataobjects/>
+</service>

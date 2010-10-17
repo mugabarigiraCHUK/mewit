@@ -1,0 +1,12 @@
+{
+	"methods": [{
+		"name": "doUpdatePerson",
+		"parameters": [{
+			"name": "person",
+			"type": "org.azrul.epice.domain.Person"
+		}],
+		"returnType": "org.azrul.epice.domain.Person"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "UpdatePersonService.json"
+}

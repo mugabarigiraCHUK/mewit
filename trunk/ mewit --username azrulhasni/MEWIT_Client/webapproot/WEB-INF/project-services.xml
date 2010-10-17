@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+    <import resource="classpath:AcceptItem.spring.xml"/>
+    <import resource="classpath:CreateItemService.spring.xml"/>
+    <import resource="classpath:DelegateItem.spring.xml"/>
+    <import resource="classpath:FileServices.spring.xml"/>
+    <import resource="classpath:FindUserService.spring.xml"/>
+    <import resource="classpath:GiveCommentsOnFeedback.spring.xml"/>
+    <import resource="classpath:GiveFeedback.spring.xml"/>
+    <import resource="classpath:LoginService.spring.xml"/>
+    <import resource="classpath:LogoutService.spring.xml"/>
+    <import resource="classpath:MewitProperties.spring.xml"/>
+    <import resource="classpath:ModifyItemService.spring.xml"/>
+    <import resource="classpath:ModifyPasswordService.spring.xml"/>
+    <import resource="classpath:NegotiateDeadline.spring.xml"/>
+    <import resource="classpath:RejectItem.spring.xml"/>
+    <import resource="classpath:RespondNegotiatedDeadline.spring.xml"/>
+    <import resource="classpath:RetrievePasswordService.spring.xml"/>
+    <import resource="classpath:SearchItemsService.spring.xml"/>
+    <import resource="classpath:Session.spring.xml"/>
+    <import resource="classpath:ToggleArchiveService.spring.xml"/>
+    <import resource="classpath:UpdateItemWithAttachment.spring.xml"/>
+    <import resource="classpath:UpdatePersonService.spring.xml"/>
+    <import resource="classpath:com/wavemaker/runtime/service/runtimeServiceBean.xml"/>
+</beans>

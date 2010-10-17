@@ -1,0 +1,936 @@
+wm.types = {
+	"types": {
+		"boolean": {
+			"internal": true,
+			"primitiveType": "Boolean"
+		},
+		"byte": {
+			"internal": true,
+			"primitiveType": "Number"
+		},
+		"char": {
+			"internal": true,
+			"primitiveType": "String"
+		},
+		"com.wavemaker.runtime.server.DownloadResponse": {
+			"fields": {
+				"contentType": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"contents": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.io.InputStream"
+				},
+				"fileName": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "FileServices"
+		},
+		"com.wavemaker.runtime.service.PagingOptions": {
+			"fields": {
+				"firstResult": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Long"
+				},
+				"maxResults": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Long"
+				},
+				"orderBy": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": true,
+			"liveService": false,
+			"service": "runtimeService"
+		},
+		"com.wavemaker.runtime.service.PropertyOptions": {
+			"fields": {
+				"filters": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "com.wavemaker.runtime.service.Filter"
+				},
+				"properties": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": true,
+			"liveService": false,
+			"service": "runtimeService"
+		},
+		"double": {
+			"internal": true,
+			"primitiveType": "Number"
+		},
+		"float": {
+			"internal": true,
+			"primitiveType": "Number"
+		},
+		"int": {
+			"internal": true,
+			"primitiveType": "Number"
+		},
+		"java.lang.Boolean": {
+			"internal": false,
+			"primitiveType": "Boolean"
+		},
+		"java.lang.Byte": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.lang.Character": {
+			"internal": false,
+			"primitiveType": "String"
+		},
+		"java.lang.Double": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.lang.Float": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.lang.Integer": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.lang.Long": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.lang.Short": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.lang.String": {
+			"internal": false,
+			"primitiveType": "String"
+		},
+		"java.lang.StringBuffer": {
+			"internal": false,
+			"primitiveType": "String"
+		},
+		"java.math.BigDecimal": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.math.BigInteger": {
+			"internal": false,
+			"primitiveType": "Number"
+		},
+		"java.sql.Date": {
+			"internal": false,
+			"primitiveType": "Date"
+		},
+		"java.sql.Time": {
+			"internal": false,
+			"primitiveType": "Date"
+		},
+		"java.sql.Timestamp": {
+			"internal": false,
+			"primitiveType": "Date"
+		},
+		"java.util.Date": {
+			"internal": false,
+			"primitiveType": "Date"
+		},
+		"long": {
+			"internal": true,
+			"primitiveType": "Number"
+		},
+		"org.azrul.epice.dao.query.QueryResult": {
+			"fields": {
+				"items": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Item"
+				},
+				"pages": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.dao.query.SearchPage"
+				},
+				"startRow": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "int"
+				},
+				"total": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "int"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "SearchItemsService"
+		},
+		"org.azrul.epice.dao.query.SearchPage": {
+			"fields": {
+				"data": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"display": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "SearchItemsService"
+		},
+		"org.azrul.epice.domain.Attachment": {
+			"fields": {
+				"deletable": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"file": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"fileName": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"filePath": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"id": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"localFile": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.io.File"
+				},
+				"owner": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"owner_id": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"uploadDate": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"upload_date": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "FileServices"
+		},
+		"org.azrul.epice.domain.ChildItem": {
+			"fields": {
+				"id": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"recipient": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"status": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Item$Status"
+				},
+				"subject": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "SearchItemsService"
+		},
+		"org.azrul.epice.domain.FileRepository": {
+			"fields": {
+				"attachments": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Attachment"
+				},
+				"description": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"id": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"owner": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"tempAttachments": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Attachment"
+				},
+				"tempAttachmentsList": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Attachment"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "FileServices"
+		},
+		"org.azrul.epice.domain.Item": {
+			"fields": {
+				"archived": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"archivedForRecipient": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"archivedForSender": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"children": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.ChildItem"
+				},
+				"commentsOnFeedback": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"deadLine": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"deadlineStatus": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"deletable": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"feedback": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"fileRepository": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.FileRepository"
+				},
+				"id": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"links": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"linksList": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"negotiatedDeadLine": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"notDeletable": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"parentId": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"priority": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Item$Priority"
+				},
+				"readState": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"reasonForNegotiatiationOfDeadLine": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"reasonForRejectionOfTask": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"recipient": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"recipients": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"recipientsList": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"redoCounter": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "int"
+				},
+				"reference": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"sender": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"sentDate": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"startDate": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Date"
+				},
+				"status": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Item$Status"
+				},
+				"subject": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"supervisors": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"supervisorsList": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"tags": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"tagsList": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"task": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"type": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "SearchItemsService"
+		},
+		"org.azrul.epice.domain.Person": {
+			"fields": {
+				"cellPhoneWork": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"emailWork": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"firstName": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"lastName": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"organization": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"potsPhoneWork": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"presence": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"status": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"type": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"username": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+				"password": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "FindUserService"
+		},
+		"org.azrul.epice.rest.dto.LoginResponse": {
+			"fields": {
+				"errors": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"items": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.domain.Item"
+				},
+				"nextApis": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.util.Map<java.lang.String,java.util.Map<java.lang.String,java.lang.String>>"
+				},
+				"query": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "org.azrul.epice.dao.query.SearchItemsQuery"
+				},
+				"sessionId": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"userId": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "LoginService"
+		},
+		"org.springframework.web.multipart.MultipartFile": {
+			"fields": {
+				"bytes": {
+					"exclude": [],
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "byte"
+				},
+				"contentType": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"empty": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"inputStream": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.io.InputStream"
+				},
+				"name": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"originalFilename": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"size": {
+					"exclude": [],
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "long"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "FileServices"
+		},
+		"short": {
+			"internal": true,
+			"primitiveType": "Number"
+		}
+	}
+};

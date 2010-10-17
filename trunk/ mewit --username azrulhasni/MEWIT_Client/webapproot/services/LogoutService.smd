@@ -1,0 +1,9 @@
+{
+	"methods": [{
+		"name": "invalidateSession",
+		"parameters": null,
+		"returnType": null
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "LogoutService.json"
+}
