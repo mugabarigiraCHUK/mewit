@@ -1,0 +1,179 @@
+package org.azrul.mewit.client;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.commons.io.IOUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.wavemaker.runtime.server.ParamName;
+import com.wavemaker.runtime.server.DownloadResponse;
+import java.io.FileInputStream;
+import org.azrul.epice.domain.FileRepository;
+import org.azrul.epice.domain.Attachment;
+import com.thoughtworks.xstream.XStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.FileEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.azrul.epice.dao.query.SearchItemsQuery;
+import org.azrul.epice.domain.Attachment;
+import org.azrul.epice.domain.Item;
+import org.azrul.epice.domain.Item.Priority;
+import org.azrul.epice.domain.Person;
+import org.azrul.epice.rest.dto.AcceptItemRequest;
+import org.azrul.epice.rest.dto.AcceptItemResponse;
+import org.azrul.epice.rest.dto.CreateAndSendItemRequest;
+import org.azrul.epice.rest.dto.CreateAndSendItemResponse;
+import org.azrul.epice.rest.dto.DelegateItemRequest;
+import org.azrul.epice.rest.dto.DelegateItemResponse;
+import org.azrul.epice.rest.dto.DownloadFileRequest;
+import org.azrul.epice.rest.dto.DownloadFileResponse;
+import org.azrul.epice.rest.dto.FindItemByIdRequest;
+import org.azrul.epice.rest.dto.FindItemByIdResponse;
+import org.azrul.epice.rest.dto.FindPersonRequest;
+import org.azrul.epice.rest.dto.FindPersonResponse;
+import org.azrul.epice.rest.dto.GiveCommentsOnFeedbackRequest;
+import org.azrul.epice.rest.dto.GiveCommentsOnFeedbackResponse;
+import org.azrul.epice.rest.dto.LoginRequest;
+import org.azrul.epice.rest.dto.LoginResponse;
+import org.azrul.epice.rest.dto.GiveFeedbackRequest;
+import org.azrul.epice.rest.dto.GiveFeedbackResponse;
+import org.azrul.epice.rest.dto.NegotiateDeadlineRequest;
+import org.azrul.epice.rest.dto.NegotiateDeadlineResponse;
+import org.azrul.epice.rest.dto.RejectItemRequest;
+import org.azrul.epice.rest.dto.RejectItemResponse;
+import org.azrul.epice.rest.dto.RespondNegotiateDeadlineRequest;
+import org.azrul.epice.rest.dto.RespondNegotiateDeadlineResponse;
+import org.azrul.epice.rest.dto.SearchRequest;
+import org.azrul.epice.rest.dto.SearchResponse;
+import org.azrul.epice.rest.dto.UploadFileRequest;
+import org.azrul.epice.rest.dto.UploadFileResponse;
+import com.wavemaker.runtime.RuntimeAccess;
+/**
+ * This is a client-facing service class.  All
+ * public methods will be exposed to the client.  Their return
+ * values and parameters will be passed to the client or taken
+ * from the client, respectively.  This will be a singleton
+ * instance, shared between all requests. 
+ * 
+ * To log, call the superclass method log(LOG_LEVEL, String) or log(LOG_LEVEL, String, Exception).
+ * LOG_LEVEL is one of FATAL, ERROR, WARN, INFO and DEBUG to modify your log level.
+ * For info on these levels, look for tomcat/log4j documentation
+ */
+public class FileServices extends com.wavemaker.runtime.javaservice.JavaServiceSuperClass {
+    /* Pass in one of FATAL, ERROR, WARN,  INFO and DEBUG to modify your log level;
+     *  recommend changing this to FATAL or ERROR before deploying.  For info on these levels, look for tomcat/log4j documentation
+     */
+    public FileServices() {
+       super(INFO);
+    }
+
+    public String sampleJavaOperation() {
+       String result  = null;
+       try {
+          log(INFO, "Starting sample operation");
+          result = "Hello World";
+          log(INFO, "Returning " + result);
+       } catch(Exception e) {
+          log(ERROR, "The sample java service operation has failed", e);
+       }
+       return result;
+    }
+    
+    private String uploadDir = "C:/Users/azrulhasni/DB4O_Database/temp";
+    private File UPLOADS = new File(uploadDir);
+    
+    public void doSomething(FileRepository fileRepository, Attachment attachment){
+    
+    }
+
+    public String doUpload(@ParamName(name="file") MultipartFile file,  @ParamName(name = "uploadDirectory") String uploadDirectory) throws IOException {
+      String currentItemId =  uploadDirectory;
+      System.out.println("Current item id="+currentItemId);
+      String sessionId =  (String)RuntimeAccess.getInstance().getSession().getAttribute("SESSION_ID");
+      
+      log(INFO, "Current item id " + currentItemId);
+      File outputFile = new File(UPLOADS, file.getOriginalFilename());
+      System.out.println("writing the content of uploaded file to: "+outputFile);
+      
+      FileOutputStream fos = new FileOutputStream(outputFile);
+  
+      IOUtils.copy(file.getInputStream(), fos);
+      
+      file.getInputStream().close();
+      fos.close();
+      return doUploadFile(sessionId,outputFile);
+    }
+
+    public DownloadResponse doDownload(@ParamName(name="filename") String filename) throws IOException {
+          
+      DownloadResponse ret = new DownloadResponse();
+  
+      File localFile = new File(uploadDir, filename);
+      FileInputStream fis = new FileInputStream(localFile);
+  
+      ret.setContents(fis);
+      ret.setFileName(filename);
+      return ret;
+    }
+    
+    private String doUploadFile(String sessionId, File file) throws UnsupportedEncodingException, IOException {
+        log(INFO,sessionId);
+        log(INFO,file.getPath());
+        
+        DefaultHttpClient httpclient = new DefaultHttpClient();
+        UploadFileRequest request = new UploadFileRequest();
+
+
+        request.setSessionId(sessionId);
+        request.setDirectory(UUID.randomUUID().toString());
+        request.setFileName(file.getName());
+        URL url = file.toURI().toURL();
+        URLConnection urlCon = url.openConnection();
+
+        XStream writer = new XStream();
+        writer.setMode(XStream.XPATH_ABSOLUTE_REFERENCES);
+        writer.alias("UploadFileRequest", UploadFileRequest.class);
+        XStream reader = new XStream();
+        reader.setMode(XStream.XPATH_ABSOLUTE_REFERENCES);
+        reader.alias("UploadFileResponse", UploadFileResponse.class);
+
+        String strRequest = URLEncoder.encode(reader.toXML(request), "UTF-8");
+        HttpPost httppost = new HttpPost(MewitProperties.getMewitUrl()+"/resources/uploadFile?REQUEST=" + strRequest);
+        FileEntity fileEntity = new FileEntity(file, urlCon.getContentType());
+        httppost.setEntity(fileEntity);
+        HttpResponse response = httpclient.execute(httppost);
+
+        HttpEntity entity = response.getEntity();
+        if (entity != null) {
+            String result = URLDecoder.decode(EntityUtils.toString(entity), "UTF-8");
+            log(INFO,result);
+            //System.out.println(result);
+            UploadFileResponse oResponse = (UploadFileResponse) reader.fromXML(result);
+            return oResponse.getFile();
+        }
+        return null;
+    }
+  
+}

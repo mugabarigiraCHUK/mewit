@@ -1,0 +1,25 @@
+{
+	"methods": [{
+		"name": "doSearch",
+		"parameters": [{
+			"name": "searchTerm",
+			"type": "java.lang.String"
+		}, {
+			"name": "searchInReceivedItems",
+			"type": "boolean"
+		}, {
+			"name": "searchInSentItems",
+			"type": "boolean"
+		}, {
+			"name": "searchInSupervisedItems",
+			"type": "boolean"
+		}],
+		"returnType": "[org.azrul.epice.domain.Item]"
+	}, {
+		"name": "sampleJavaOperation",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "SearchService.json"
+}

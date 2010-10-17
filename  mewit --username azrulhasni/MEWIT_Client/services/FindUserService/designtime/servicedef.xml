@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="FindUserService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.FindUserService" id="FindUserService">
+    <operation name="doFindPerson">
+        <parameter isList="false" typeRef="java.lang.String" name="personId"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Person"/>
+    </operation>
+    <operation name="doFindCurrentPerson">
+        <return isList="false" typeRef="org.azrul.epice.domain.Person"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="false" name="Person" javaType="org.azrul.epice.domain.Person">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="cellPhoneWork"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="emailWork"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="firstName"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="lastName"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="organization"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="potsPhoneWork"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="presence"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="status"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="type"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="username"/>
+			<element allowNull="false" isList="false" typeRef="java.lang.String" name="password"/>
+        </dataobject>
+    </dataobjects>
+</service>

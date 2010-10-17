@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="AcceptItem.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.AcceptItem" id="AcceptItem">
+    <operation name="doAccept">
+        <parameter isList="false" typeRef="java.lang.String" name="itemId"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <dataobjects/>
+</service>

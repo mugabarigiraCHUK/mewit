@@ -1,0 +1,36 @@
+{
+	"methods": [{
+		"name": "doDelegate",
+		"parameters": [{
+			"name": "parentId",
+			"type": "java.lang.String"
+		}, {
+			"name": "targets",
+			"type": "java.lang.String"
+		}, {
+			"name": "subject",
+			"type": "java.lang.String"
+		}, {
+			"name": "task",
+			"type": "java.lang.String"
+		}, {
+			"name": "startDate",
+			"type": "java.util.Date"
+		}, {
+			"name": "deadline",
+			"type": "java.util.Date"
+		}, {
+			"name": "links",
+			"type": "java.lang.String"
+		}, {
+			"name": "tags",
+			"type": "java.lang.String"
+		}, {
+			"name": "fileRepository",
+			"type": "org.azrul.epice.domain.FileRepository"
+		}],
+		"returnType": "org.azrul.epice.domain.Item"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "DelegateItem.json"
+}

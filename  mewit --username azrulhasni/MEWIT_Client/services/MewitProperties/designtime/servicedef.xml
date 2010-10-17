@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="MewitProperties.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.MewitProperties" id="MewitProperties">
+    <operation name="getTemporaryUploadDirectory">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <operation name="getMewitUrl">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <dataobjects/>
+</service>

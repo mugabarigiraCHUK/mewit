@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="LoginService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.LoginService" id="LoginService">
+    <operation name="doLogin">
+        <parameter isList="false" typeRef="java.lang.String" name="username"/>
+        <parameter isList="false" typeRef="java.lang.String" name="password"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Person"/>
+    </operation>
+    <dataobjects/>
+</service>

@@ -1,0 +1,82 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.azrul.epice.dao.query;
+
+import java.util.List;
+import org.azrul.epice.domain.Item;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author azrulm
+ */
+public class QueryResult {
+
+    private List<Item> items=new ArrayList<Item>();
+    private int total;
+    private int startRow;
+
+    /**
+     * @return the total
+     */
+    public int getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    /**
+     * @return the items
+     */
+    public List<Item> getItems() {
+        return items;
+    }
+
+    /**
+     * @param items the items to set
+     */
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    /**
+     * @return the startRow
+     */
+    public int getStartRow() {
+        return startRow;
+    }
+
+    /**
+     * @param startRow the startRow to set
+     */
+    public void setStartRow(int startRow) {
+        this.startRow = startRow;
+    }
+
+
+	public List<Integer> getPages(){
+		List<Integer> pages = new ArrayList<Integer>();
+		if (items==null || items.isEmpty())
+		{
+			//do nothing
+		}else{
+			int maxPage = Math.ceil(total/items.size());
+			for (int i=0;i<maxPage ;i++ )
+			{
+				pages.add(i);
+			}
+		}
+		return pages;
+	}
+
+	public void setPages(List<Integer> pages){
+
+	}
+}

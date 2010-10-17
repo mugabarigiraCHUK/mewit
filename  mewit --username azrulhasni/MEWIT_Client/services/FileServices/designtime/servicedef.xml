@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="FileServices.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.FileServices" id="FileServices">
+    <operation name="doSomething">
+        <parameter isList="false" typeRef="org.azrul.epice.domain.FileRepository" name="fileRepository"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Attachment" name="attachment"/>
+    </operation>
+    <operation name="doDownloadFile">
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Attachment" name="attachment"/>
+        <return isList="false" typeRef="com.wavemaker.runtime.server.DownloadResponse"/>
+    </operation>
+    <operation name="doUpload">
+        <parameter isList="false" typeRef="org.springframework.web.multipart.MultipartFile" name="file"/>
+        <parameter isList="false" typeRef="java.lang.String" name="uploadDirectory"/>
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <operation name="doDownload">
+        <parameter isList="false" typeRef="java.lang.String" name="filename"/>
+        <return isList="false" typeRef="com.wavemaker.runtime.server.DownloadResponse"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="false" name="FileRepository" javaType="org.azrul.epice.domain.FileRepository">
+            <element allowNull="false" isList="true" typeRef="org.azrul.epice.domain.Attachment" name="attachments"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="description"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="id"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="owner"/>
+            <element allowNull="false" isList="true" typeRef="org.azrul.epice.domain.Attachment" name="tempAttachments"/>
+            <element allowNull="false" isList="true" typeRef="org.azrul.epice.domain.Attachment" name="tempAttachmentsList"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="Attachment" javaType="org.azrul.epice.domain.Attachment">
+            <element allowNull="false" isList="false" typeRef="boolean" name="deletable"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="file"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="fileName"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="filePath"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="id"/>
+            <element allowNull="false" isList="false" typeRef="java.io.File" name="localFile"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="owner"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="owner_id"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="uploadDate"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="upload_date"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="DownloadResponse" javaType="com.wavemaker.runtime.server.DownloadResponse">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="contentType"/>
+            <element allowNull="false" isList="false" typeRef="java.io.InputStream" name="contents"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="fileName"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="MultipartFile" javaType="org.springframework.web.multipart.MultipartFile">
+            <element allowNull="false" isList="true" typeRef="byte" name="bytes"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="contentType"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="empty"/>
+            <element allowNull="false" isList="false" typeRef="java.io.InputStream" name="inputStream"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="originalFilename"/>
+            <element allowNull="false" isList="false" typeRef="long" name="size"/>
+        </dataobject>
+    </dataobjects>
+</service>

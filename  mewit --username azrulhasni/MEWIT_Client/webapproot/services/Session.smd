@@ -1,0 +1,24 @@
+{
+	"methods": [{
+		"name": "getCurrentSessionId",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"name": "getCurrentUserId",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"name": "sampleJavaOperation",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"name": "setCurrentSelectedItem",
+		"parameters": [{
+			"name": "itemId",
+			"type": "java.lang.String"
+		}],
+		"returnType": null
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "Session.json"
+}

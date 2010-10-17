@@ -1,0 +1,52 @@
+{
+	"methods": [{
+		"name": "doSearch",
+		"parameters": [{
+			"name": "searchTerm",
+			"type": "java.lang.String"
+		}, {
+			"name": "searchInReceivedItems",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "searchInSentItems",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "searchInSupervisedItems",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "startRow",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "resultCount",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "searchArchived",
+			"type": "java.lang.Boolean"
+		}, {
+			"name": "searchInItemsNeededAttentionOnly",
+			"type": "java.lang.Boolean"
+		}],
+		"returnType": "org.azrul.epice.dao.query.QueryResult"
+	}, {
+		"name": "findById",
+		"parameters": [{
+			"name": "itemId",
+			"type": "java.lang.String"
+		}],
+		"returnType": "org.azrul.epice.domain.Item"
+	}, {
+		"name": "getChildItem",
+		"parameters": null,
+		"returnType": "org.azrul.epice.domain.ChildItem"
+	}, {
+		"name": "getItem",
+		"parameters": null,
+		"returnType": "org.azrul.epice.domain.Item"
+	}, {
+		"name": "getSearchPage",
+		"parameters": null,
+		"returnType": "org.azrul.epice.dao.query.SearchPage"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "SearchItemsService.json"
+}

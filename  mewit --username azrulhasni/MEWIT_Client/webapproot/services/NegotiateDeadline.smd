@@ -1,0 +1,22 @@
+{
+	"methods": [{
+		"name": "doNegotiateDeadline",
+		"parameters": [{
+			"name": "itemId",
+			"type": "java.lang.String"
+		}, {
+			"name": "reason",
+			"type": "java.lang.String"
+		}, {
+			"name": "newDeadline",
+			"type": "java.util.Date"
+		}],
+		"returnType": "org.azrul.epice.domain.Item"
+	}, {
+		"name": "sampleJavaOperation",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "NegotiateDeadline.json"
+}

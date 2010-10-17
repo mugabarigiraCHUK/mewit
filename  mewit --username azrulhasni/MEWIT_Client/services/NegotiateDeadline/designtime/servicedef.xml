@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="NegotiateDeadline.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.NegotiateDeadline" id="NegotiateDeadline">
+    <operation name="sampleJavaOperation">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <operation name="doNegotiateDeadline">
+        <parameter isList="false" typeRef="java.lang.String" name="itemId"/>
+        <parameter isList="false" typeRef="java.lang.String" name="reason"/>
+        <parameter isList="false" typeRef="java.util.Date" name="newDeadline"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <dataobjects/>
+</service>

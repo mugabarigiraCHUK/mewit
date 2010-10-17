@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="DelegateItem.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.DelegateItem" id="DelegateItem">
+    <operation name="doDelegate">
+        <parameter isList="false" typeRef="java.lang.String" name="parentId"/>
+        <parameter isList="false" typeRef="java.lang.String" name="targets"/>
+        <parameter isList="false" typeRef="java.lang.String" name="subject"/>
+        <parameter isList="false" typeRef="java.lang.String" name="task"/>
+        <parameter isList="false" typeRef="java.util.Date" name="startDate"/>
+        <parameter isList="false" typeRef="java.util.Date" name="deadline"/>
+        <parameter isList="false" typeRef="java.lang.String" name="links"/>
+        <parameter isList="false" typeRef="java.lang.String" name="tags"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.FileRepository" name="fileRepository"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <dataobjects/>
+</service>

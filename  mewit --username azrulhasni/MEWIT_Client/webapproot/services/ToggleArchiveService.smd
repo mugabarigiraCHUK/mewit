@@ -1,0 +1,15 @@
+{
+	"methods": [{
+		"name": "doService",
+		"parameters": [{
+			"name": "itemIds",
+			"type": "[java.lang.String]"
+		}, {
+			"name": "archive",
+			"type": "java.lang.Boolean"
+		}],
+		"returnType": "[org.azrul.epice.domain.Item]"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "ToggleArchiveService.json"
+}

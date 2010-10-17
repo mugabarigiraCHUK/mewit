@@ -1,0 +1,19 @@
+{
+	"methods": [{
+		"name": "doReject",
+		"parameters": [{
+			"name": "itemId",
+			"type": "java.lang.String"
+		}, {
+			"name": "reason",
+			"type": "java.lang.String"
+		}],
+		"returnType": "org.azrul.epice.domain.Item"
+	}, {
+		"name": "sampleJavaOperation",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "RejectItem.json"
+}

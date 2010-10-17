@@ -1,0 +1,19 @@
+{
+	"methods": [{
+		"name": "doAddAttachment",
+		"parameters": [{
+			"name": "file",
+			"type": "java.lang.String"
+		}, {
+			"name": "item",
+			"type": "org.azrul.epice.domain.Item"
+		}],
+		"returnType": "org.azrul.epice.domain.Item"
+	}, {
+		"name": "sampleJavaOperation",
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "UpdateItemWithAttachment.json"
+}

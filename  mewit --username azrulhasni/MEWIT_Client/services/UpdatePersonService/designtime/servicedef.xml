@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="UpdatePersonService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.UpdatePersonService" id="UpdatePersonService">
+    <operation name="doUpdatePerson">
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Person" name="person"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Person"/>
+    </operation>
+    <dataobjects/>
+</service>

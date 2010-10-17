@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="LoginService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.LoginService" id="LoginService">
+    <operation name="doLogin">
+        <parameter isList="false" typeRef="java.lang.String" name="username"/>
+        <parameter isList="false" typeRef="java.lang.String" name="password"/>
+        <return isList="false" typeRef="org.azrul.epice.rest.dto.LoginResponse"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="false" name="LoginResponse" javaType="org.azrul.epice.rest.dto.LoginResponse">
+            <element allowNull="false" isList="true" typeRef="java.lang.String" name="errors"/>
+            <element allowNull="false" isList="true" typeRef="org.azrul.epice.domain.Item" name="items"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.lang.String&gt;&gt;" name="nextApis"/>
+            <element allowNull="false" isList="false" typeRef="org.azrul.epice.dao.query.SearchItemsQuery" name="query"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="userId"/>
+        </dataobject>
+    </dataobjects>
+</service>

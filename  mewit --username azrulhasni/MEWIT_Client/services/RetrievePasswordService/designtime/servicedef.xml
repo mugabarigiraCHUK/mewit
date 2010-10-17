@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="RetrievePasswordService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.RetrievePasswordService" id="RetrievePasswordService">
+    <operation name="doRetrievePassword">
+        <parameter isList="false" typeRef="java.lang.String" name="email"/>
+    </operation>
+    <dataobjects/>
+</service>

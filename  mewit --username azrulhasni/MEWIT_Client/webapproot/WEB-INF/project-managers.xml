@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+    <bean scope="singleton" parent="typeManagerBase" class="com.wavemaker.runtime.service.TypeManager" id="typeManager">
+        <property name="types">
+            <map merge="true">
+                <entry key="AcceptItem">
+                    <list/>
+                </entry>
+                <entry key="CreateItemService">
+                    <list/>
+                </entry>
+                <entry key="DelegateItem">
+                    <list/>
+                </entry>
+                <entry key="FileServices">
+                    <list>
+                        <value>org.azrul.epice.domain.FileRepository</value>
+                        <value>org.azrul.epice.domain.Attachment</value>
+                        <value>com.wavemaker.runtime.server.DownloadResponse</value>
+                        <value>org.springframework.web.multipart.MultipartFile</value>
+                    </list>
+                </entry>
+                <entry key="FindUserService">
+                    <list>
+                        <value>org.azrul.epice.domain.Person</value>
+                    </list>
+                </entry>
+                <entry key="GiveCommentsOnFeedback">
+                    <list/>
+                </entry>
+                <entry key="GiveFeedback">
+                    <list/>
+                </entry>
+                <entry key="LoginService">
+                    <list/>
+                </entry>
+                <entry key="LogoutService">
+                    <list/>
+                </entry>
+                <entry key="MewitProperties">
+                    <list/>
+                </entry>
+                <entry key="ModifyItemService">
+                    <list>
+                        <value>java.util.Date</value>
+                    </list>
+                </entry>
+                <entry key="ModifyPasswordService">
+                    <list/>
+                </entry>
+                <entry key="NegotiateDeadline">
+                    <list/>
+                </entry>
+                <entry key="RejectItem">
+                    <list/>
+                </entry>
+                <entry key="RespondNegotiatedDeadline">
+                    <list/>
+                </entry>
+                <entry key="RetrievePasswordService">
+                    <list/>
+                </entry>
+                <entry key="SearchItemsService">
+                    <list>
+                        <value>org.azrul.epice.dao.query.SearchPage</value>
+                        <value>org.azrul.epice.domain.Item</value>
+                        <value>org.azrul.epice.domain.ChildItem</value>
+                        <value>org.azrul.epice.dao.query.QueryResult</value>
+                    </list>
+                </entry>
+                <entry key="Session">
+                    <list/>
+                </entry>
+                <entry key="ToggleArchiveService">
+                    <list/>
+                </entry>
+                <entry key="UpdateItemWithAttachment">
+                    <list/>
+                </entry>
+                <entry key="UpdatePersonService">
+                    <list/>
+                </entry>
+                <entry key="runtimeService">
+                    <list>
+                        <value>com.wavemaker.runtime.service.PagingOptions</value>
+                        <value>com.wavemaker.runtime.service.PropertyOptions</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

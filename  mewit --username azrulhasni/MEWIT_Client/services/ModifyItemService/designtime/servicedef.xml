@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="ModifyItemService.spring.xml" type="JavaService" CRUDService="false" class="org.azrul.mewit.client.ModifyItemService" id="ModifyItemService">
+    <operation name="doGiveCommentsOnFeedback">
+        <parameter isList="false" typeRef="java.lang.String" name="sessionId"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Item" name="item"/>
+        <parameter isList="false" typeRef="java.lang.String" name="comments"/>
+        <parameter isList="false" typeRef="boolean" name="approved"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="doReject">
+        <parameter isList="false" typeRef="java.lang.String" name="sessionId"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Item" name="item"/>
+        <parameter isList="false" typeRef="java.lang.String" name="reason"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="doGiveFeedback">
+        <parameter isList="false" typeRef="java.lang.String" name="sessionId"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Item" name="item"/>
+        <parameter isList="false" typeRef="java.lang.String" name="feedback"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="doRespondNegotiateDeadline">
+        <parameter isList="false" typeRef="java.lang.String" name="sessionId"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Item" name="item"/>
+        <parameter isList="false" typeRef="java.util.Date" name="newDeadline"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="doModify">
+        <parameter isList="false" typeRef="java.lang.String" name="sessionId"/>
+        <parameter isList="false" typeRef="java.lang.String" name="itemId"/>
+        <parameter isList="false" typeRef="java.lang.String" name="parentId"/>
+        <parameter isList="false" typeRef="java.lang.String" name="status"/>
+        <parameter isList="false" typeRef="java.lang.String" name="type"/>
+        <parameter isList="false" typeRef="java.lang.String" name="subject"/>
+        <parameter isList="false" typeRef="java.lang.String" name="sender"/>
+        <parameter isList="false" typeRef="java.lang.String" name="recipient"/>
+        <parameter isList="false" typeRef="java.util.Date" name="startDate"/>
+        <parameter isList="false" typeRef="java.util.Date" name="deadline"/>
+        <parameter isList="false" typeRef="java.lang.String" name="task"/>
+        <parameter isList="false" typeRef="java.util.Date" name="negotiatedDeadline"/>
+        <parameter isList="false" typeRef="java.lang.String" name="reasonForNegotiation"/>
+        <parameter isList="false" typeRef="java.lang.String" name="reasonForRejection"/>
+        <parameter isList="false" typeRef="java.lang.String" name="feedback"/>
+        <parameter isList="false" typeRef="java.lang.String" name="commentsOnFeedback"/>
+        <parameter isList="false" typeRef="java.lang.String" name="priority"/>
+        <parameter isList="false" typeRef="boolean" name="archived"/>
+        <parameter isList="false" typeRef="boolean" name="reference"/>
+        <parameter isList="false" typeRef="java.lang.String" name="acceptNegoReject"/>
+        <parameter isList="false" typeRef="java.lang.String" name="confirmedUnconfirmed"/>
+        <parameter isList="false" typeRef="java.lang.String" name="links"/>
+        <parameter isList="false" typeRef="java.lang.String" name="tags"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.FileRepository" name="fileRepository"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="sampleJavaOperation">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <operation name="doNegotiateDeadline">
+        <parameter isList="false" typeRef="java.lang.String" name="sessionId"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Item" name="item"/>
+        <parameter isList="false" typeRef="java.lang.String" name="reason"/>
+        <parameter isList="false" typeRef="java.util.Date" name="newDeadline"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <operation name="doAccept">
+        <parameter isList="false" typeRef="java.lang.String" name="sessionId"/>
+        <parameter isList="false" typeRef="org.azrul.epice.domain.Item" name="item"/>
+        <return isList="false" typeRef="org.azrul.epice.domain.Item"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="false" name="Date" javaType="java.util.Date">
+            <element allowNull="false" isList="false" typeRef="int" name="date"/>
+            <element allowNull="false" isList="false" typeRef="int" name="day"/>
+            <element allowNull="false" isList="false" typeRef="int" name="hours"/>
+            <element allowNull="false" isList="false" typeRef="int" name="minutes"/>
+            <element allowNull="false" isList="false" typeRef="int" name="month"/>
+            <element allowNull="false" isList="false" typeRef="int" name="seconds"/>
+            <element allowNull="false" isList="false" typeRef="long" name="time"/>
+            <element allowNull="false" isList="false" typeRef="int" name="timezoneOffset"/>
+            <element allowNull="false" isList="false" typeRef="int" name="year"/>
+        </dataobject>
+    </dataobjects>
+</service>
